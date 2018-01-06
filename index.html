@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        <%= compilation.assets[htmlWebpackPlugin.files.chunks.main.entry.substr(htmlWebpackPlugin.files.publicPath.length)].source() %>
+
+    </script>
+</head>
+<body>
+<% for(var key in htmlWebpackPlugin.files.chunks){ %>
+
+<% if(key !== 'main'){ %>
+
+<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[key].entry %>"></script>
+
+<% } %>
+
+<% } %>
+</body>
+</html>
